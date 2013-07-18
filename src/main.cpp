@@ -5,11 +5,14 @@ using namespace std;
 
 int main(){
 	cout << "scheck verion 0.1" << endl;
-	Dictionary d( "mydict.dat" );
+	Dictionary d( "data/mydict.dat" );
 	string word = "dog";
-	if ( d.Check( word ) ) {
-		cout << word << " is ok\n";
-	} else {
-		cout << word << " is misspelt \n";
+	while( getline( cin, word) ){
+
+		if ( d.Check( word ) ) {
+			cout << word << " is ok\n";
+		} else {
+			cout << word << " is misspelt \n";
+		}
 	}
 }
