@@ -3,6 +3,7 @@
 
 #include <string>
 #include <iostream>
+#include <sstream>
 
 class Parser {
 	public:
@@ -10,6 +11,12 @@ class Parser {
 		std::string NextWord();
 		unsigned int LineNo() const;
 		std::string Context() const;
+	private:
+		bool ReadLine();
+		std::istream & mIn;
+		std::string mLine;
+		unsigned int mLineNo;
+		std::istringstream mIs;
 };
 
 #endif
