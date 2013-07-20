@@ -4,7 +4,7 @@
 #include <stdexcept>
 #include <string>
 
-class ScheckError : public std__runtime_error {
+class ScheckError : public std::runtime_error {
 	public:
 		ScheckError( const std::string & emsg )
 			: std::runtime_error( emsg ) {

@@ -4,15 +4,21 @@
 using namespace std;
 
 int main(){
-	cout << "scheck verion 0.1" << endl;
-	Dictionary d( "data/mydict.dat" );
-	string word = "dog";
-	while( getline( cin, word) ){
+	try {
+		cout << "scheck verion 0.1" << endl;
+		Dictionary d( "data/mydict.sdat" );
+		string word = "dog";
+		while( getline( cin, word) ){
 
-		if ( d.Check( word ) ) {
-			cout << word << " is ok\n";
-		} else {
-			cout << word << " is misspelt \n";
+			if ( d.Check( word ) ) {
+				cout << word << " is ok\n";
+			} else {
+				cout << word << " is misspelt \n";
+			}
 		}
+
+	} catch( const ScheckError & e ) {
+		cerr << "Error: " << e.what() << endl;
+		return 1;
 	}
 }
