@@ -12,10 +12,13 @@ class Parser {
 		unsigned int LineNo() const;
 		std::string Context() const;
 	private:
+		char NextChar();
 		bool ReadLine();
+		enum State { stInSpace, stInWord, stInNum };
+		State mState;
 		std::istream & mIn;
 		std::string mLine;
-		unsigned int mLineNo;
+		unsigned int mLineNo, mPos;
 		std::istringstream mIs;
 };
 
